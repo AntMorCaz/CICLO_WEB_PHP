@@ -1,0 +1,50 @@
+[
+    {
+        "nombre": "Antonio",
+        "apellidos": "Andrew",
+        "telefono": "666666666",
+        "usuario": "amc@24.com",
+        "password": "$2y$10$rKCMc4cD6A04U6QMQ2DdnekOHhYTwcpwz14plA8Obotx7t.jyEMQm",
+        "imagen": "chucknorris.jpeg"
+    },
+    {
+        "nombre": "Basil",
+        "apellidos": "Borbon",
+        "telefono": "777777777",
+        "usuario": "amc@21.com",
+        "password": "$2y$10$rKCMc4cD6A04U6QMQ2DdnekOHhYTwcpwz14plA8Obotx7t.jyEMQm",
+        "imagen": "chucknorris.jpeg"
+    },
+    {
+        "nombre": "Carmen",
+        "apellidos": "Carrasco",
+        "telefono": "999999999",
+        "usuario": "amc@25.com",
+        "password": "$2y$10$rKCMc4cD6A04U6QMQ2DdnekOHhYTwcpwz14plA8Obotx7t.jyEMQm",
+        "imagen": "HORARIO.png"
+    },
+    {
+        "nombre": "pepe",
+        "apellidos": "pep\u00f3n",
+        "telefono": "111111111",
+        "usuario": "pepe@gmail.com",
+        "password": "$2y$10$rKCMc4cD6A04U6QMQ2DdnekOHhYTwcpwz14plA8Obotx7t.jyEMQm",
+        "imagen": "HORARIO.png"
+    },
+    {
+        "nombre": "Juan",
+        "apellidos": "Jimenez",
+        "telefono": "111111111",
+        "usuario": "amc@24.com",
+        "password": "$2y$10$caVqN8Zu4ZKTt2JiMVmVquzU4TDiAqifUszwzmU35jT2JE.RbuaPe",
+        "imagen": ""
+    },
+    {
+        "nombre": "Juan",
+        "apellidos": "Garcia",
+        "telefono": "111111111",
+        "usuario": "kkk@hi.com",
+        "password": "$2y$10$1399aErqXGnuAB0larbxVu\/saAZqQFxcqV0UXSelf.QWLIIvgAWRC",
+        "imagen": ""
+    }
+]
