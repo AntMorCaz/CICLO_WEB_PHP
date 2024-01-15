@@ -40,6 +40,9 @@
                     if(isset($_SESSION['error'])){
                     print "<span class='error'>$_SESSION[error]</span>";
                     }
+                    if(isset($_COOKIE["Ultimo_usuario"]) && isset($_COOKIE["Ultimo_usuario_fecha"])){
+                        print"<span class='exito'>Ultimo usuario: ".$_COOKIE['Ultimo_usuario']." fecha: ".$_COOKIE['Ultimo_usuario_fecha']."</span>";
+                    }
 
                 ?>
                 <p>¿No tienes cuenta? <a href="formulario_registro.php">Registrate</a></p>

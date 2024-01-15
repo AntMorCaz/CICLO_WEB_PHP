@@ -46,5 +46,21 @@
         "usuario": "kkk@hi.com",
         "password": "$2y$10$1399aErqXGnuAB0larbxVu\/saAZqQFxcqV0UXSelf.QWLIIvgAWRC",
         "imagen": ""
+    },
+    {
+        "nombre": "Antonio",
+        "apellidos": "Moreno",
+        "telefono": "666666666",
+        "usuario": "amc@30.com",
+        "password": "$2y$10$65IAMwgZ5hNOTYjS7QNQfuRoRjOyQ1.Bezivg8VhDHzgxSZiDxZEe",
+        "imagen": ""
+    },
+    {
+        "nombre": "Antonio",
+        "apellidos": "Moreno",
+        "telefono": "666666666",
+        "usuario": "amc@31.com",
+        "password": "$2y$10$apuERVUq4jNQqkTQQjZWMeTq.QE952yjI277xYcPtc8HT9p79k4Mi",
+        "imagen": null
     }
 ]

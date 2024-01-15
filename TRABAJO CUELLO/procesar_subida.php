@@ -18,21 +18,21 @@ if (isset($_POST["submit"])) {
         //este mensaje creo que no da tiempo a verlo porque este archivo se ejecuta y devuelve a la pagina de formulario de datos.
         print("<h4>Guardando datos usuario en json...</h4><br>");
         
-        $_SESSION["usuario"]["nombre"] = $_POST["firstname"];
-        $_SESSION["usuario"]["apellidos"] = $_POST["lastname"];
-        $_SESSION["usuario"]["telefono"] = $_POST["telephone"];
-        $_SESSION["usuario"]["nombreusuario"] = $_POST["username"];
-        $_SESSION["usuario"]["password"] = $_POST["password"];
-        $_SESSION["usuario"]["password2"] = $_POST["password2"];
+        $nombre = $_POST["firstname"];
+        $apellidos = $_POST["lastname"];
+        $telefono = $_POST["telephone"];
+        $nombreusuario = $_POST["username"];
+        $password = $_POST["password"];
+        $password2 = $_POST["password2"];
         
         if(isset($_FILES["imagen"]["name"])){
             
-            $_SESSION["usuario"]["imagen"] = $_FILES["imagen"]["name"];
+            $imagen = $_FILES["imagen"]["name"];
 
         }
         else{
 
-            $_SESSION["usuario"]["imagen"] = "default.jpeg";
+            $imagen = "default.jpeg";
         }
         
 
@@ -40,24 +40,24 @@ if (isset($_POST["submit"])) {
 //==========================COMPROBACIONES==================================================================
 
 function validarNombre(){
-    if($_SESSION["usuario"]["nombre"]==""){
+    if($_POST["firstname"] == ""){
         return false;
     }
     return true;
 }
 
 function validarApellidos(){
-    if($_SESSION["usuario"]["nombre"]==""){
+    if($_POST["lastname"]==""){
         return false;
     }
     return true;
 }
 
 function validarEmail(){
-    if(str_contains($_SESSION["usuario"]["nombreusuario"],"@")){
+    if(str_contains($_POST["username"],"@")){
         
-        if(str_contains($_SESSION["usuario"]["nombreusuario"],".")){
-            if(strrpos($_SESSION["usuario"]["nombreusuario"],".")>strrpos($_SESSION["usuario"]["nombreusuario"],"@")){
+        if(str_contains($_POST["username"],".")){
+            if(strrpos($_POST["username"],".")>strrpos($_POST["username"],"@")){
                 return true;
             }
         }
@@ -68,7 +68,7 @@ function validarEmail(){
 
 function validarRepeticionContraseña(){
 
-    if($_SESSION["usuario"]["password"]!=$_SESSION["usuario"]["password2"])
+    if($_POST["password"] != $_POST["password2"])
     {
         return false;
     }
@@ -78,7 +78,7 @@ function validarRepeticionContraseña(){
 
 function validarContraseña(){
 
-    if(strlen($_SESSION["usuario"]["password"])<6){
+    if(strlen($_POST["password"])<6){
         return false;
     }
 
@@ -87,7 +87,7 @@ function validarContraseña(){
 }
 
 function validarTelefono(){
-    if($_SESSION["usuario"]["telefono"]=="" || !is_numeric($_SESSION["usuario"]["telefono"]) || strlen($_SESSION["usuario"]["telefono"])<9){
+    if($_POST["telephone"]=="" || !is_numeric($_POST["telephone"]) || strlen($_POST["telephone"])<9){
         return false;
     }
     return true;
@@ -170,11 +170,11 @@ function validarTelefono(){
        
         //usuario nuevo
         $User = new Usuario;
-        $User->nombre = $_SESSION["usuario"]["nombre"];
-        $User->apellidos = $_SESSION["usuario"]["apellidos"];
-        $User->telefono = $_SESSION["usuario"]["telefono"];
-        $User->usuario = $_SESSION["usuario"]["nombreusuario"];
-        $User->password = password_hash($_SESSION["usuario"]["password"], PASSWORD_DEFAULT);
+        $User->nombre = $_POST["firstname"];
+        $User->apellidos = $_POST["lastname"];
+        $User->telefono = $_POST["telephone"];
+        $User->usuario = $_POST["username"];
+        $User->password = password_hash($_POST["password"], PASSWORD_DEFAULT);
         $User->imagen = $_SESSION["usuario"]["imagen"];
         
         //array_push nuevo user
@@ -183,6 +183,9 @@ function validarTelefono(){
         $json_lista_usuario = json_encode($lista_usuarios,JSON_PRETTY_PRINT);
 
         file_put_contents("bbdd/data.json", $json_lista_usuario);
+
+        setcookie("Ultimo_usuario", $User->usuario, time() + 3600*24*10,"/");
+        setcookie("Ultimo_usuario_fecha", date("d-m-Y H:i:s"), time()+3600*24*10,"/");
     }
 //-----------------------JSON----------------------------------------------------
     //Si no se ha creado la variable de sesion error en ningun paso anterior entonces procedemos a guardar los datos en formato JSON

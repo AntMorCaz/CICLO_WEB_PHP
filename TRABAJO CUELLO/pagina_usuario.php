@@ -34,7 +34,10 @@ if (isset($_POST["submit"])) {
             $validado = $usr;
             $_SESSION["usuario"]["nombre"] = $usr->nombre;
             $_SESSION["usuario"]["apellidos"] = $usr->apellidos;
+            $_SESSION["usuario"]["telefono"] = $usr->telefono;
             $_SESSION["usuario"]["email"] = $usr->usuario;
+            $_SESSION["usuario"]["password"] = $usr->password;
+            $_SESSION["usuario"]["imagen"] = $usr->imagen;
         }
     
         
@@ -74,18 +77,11 @@ else{
     <main>
     <?php
 
-        if(isset($validado)){
+        if($loginok){
           echo "<h1>Total de usuarios Registrados: ". count($lista_usuarios)."</h1>";
         }
     ?>
-    <?php 
-            
-            if(isset($_SESSION)){
-            //    session_destroy();
-            }
-            
-            
-            ?>
+   
             
         </main>
         <?php 

@@ -11,9 +11,9 @@
 
         
             
-        if(isset($loginok) && $loginok){
+        if(isset($_SESSION["usuario"])){
              
-            echo "<li style='margin-left: auto;margin-right:1rem'>Bienvenido:  <strong>".$validado->nombre." ".$validado->apellidos."</strong> </li>";
+            echo "<li style='margin-left: auto;margin-right:1rem'>Bienvenido:  <strong>".$_SESSION["usuario"]["nombre"]." ".$_SESSION["usuario"]["apellidos"]."</strong> </li>";
             echo "<li><a href='perfil.php'>Perfil</a></li>";
             echo "<li><a href='index.php'>Cerrar Sesión</a></li>";
             
